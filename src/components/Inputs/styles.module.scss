@@ -1,0 +1,27 @@
+@use "../../scss/abstracts/" as *;
+
+.container{
+    width: 80%;
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;    
+    gap: 2rem;
+    font-family: 'Audiowide', cursive;
+    letter-spacing: 0.2rem;
+    font-size: 2rem;
+
+    input{
+      @include in-neumorph;
+      width: 100%;
+      outline: none;
+      padding: 1rem;
+      border-radius: 0.8rem;
+      border: none;
+    }
+
+    input::placeholder{
+        color: $color-red-200;
+    }
+    
+  
+}

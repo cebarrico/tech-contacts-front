@@ -1,0 +1,11 @@
+@use "./abstracts" as *;
+
+body,
+input,
+button,
+textarea {
+    color: $color-red-400;
+    font-size: 1.6rem;
+    font-family: 'Audiowide', cursive;
+    letter-spacing: 0.2rem;
+}
