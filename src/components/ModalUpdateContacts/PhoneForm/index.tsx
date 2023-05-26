@@ -1,22 +1,47 @@
 import style from "../styles.module.scss";
+import { api } from "@/services/api";
+import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Phone, phoneSchema } from "@/schemas/phone-mail.schemas";
-export default function MiniPhoneForm() {
+import { AuthContext } from "@/providers/AuthContext";
+
+export default function MiniPhoneForm({ contactId }: Phone) {
+  const { setPhone } = useContext(AuthContext);
+  const token = localStorage.getItem("@TOKEN");
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm();
+  } = useForm<Phone>({
+    resolver: zodResolver(phoneSchema),
+  });
 
-  function onSubmit(data: any) {
-    console.log(data);
+  async function onSubmit(data: any) {
+    const response = await api.post("phone", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setPhone((previousData: Phone[]) => [response.data, ...previousData]);
+    reset();
   }
   return (
     <>
-      <form className={style.adtionalMailPhone} onSubmit={onSubmit}>
+      <form
+        className={style.adtionalMailPhone}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <h3>Telefone</h3>
-        <input type="text" placeholder="Novo telefone" />
+        <input type="text" placeholder="Novo telefone" {...register("phone")} />
+        <input
+          type="text"
+          value={contactId}
+          className={style.fixedValue}
+          {...register("contactId")}
+        />
         <button type="submit" className={style.add}>
           +
         </button>
