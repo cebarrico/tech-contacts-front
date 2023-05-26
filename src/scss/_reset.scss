@@ -1,5 +1,5 @@
 @use "./abstracts" as *;
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Share+Tech&display=swap');
 
 :root {
   font-size: 60%;
@@ -16,7 +16,30 @@
   padding: 0;
   outline: 0;
   box-sizing: border-box;
+  list-style: none;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #e80202 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #e80202;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
 
 body,
 html {
@@ -32,7 +55,11 @@ body {
   
 }
 
-
+main,header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 h1,
 h2,

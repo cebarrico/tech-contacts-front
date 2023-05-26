@@ -2,7 +2,8 @@
 
 .container{
     width: 100%;
-    height: 50rem;
+    height: auto;
+    padding: 3rem 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,22 +21,23 @@
 }
 
 .login{
-   @include selected-neumorph;
-   color: $color-red-300;
-
-}
-
-.register{
     @include unselected-neumorph;
     color: $color-red-500;
-    transition: 0.1s ease-in-out;    
-}
+    transition: 0.1s ease-in-out;
+    
+ }
 
-.register:focus{
+ .login:focus{
     @include selected-neumorph;
     border-radius: 12px;
     color: $color-red-300;
 }
+
+ .register{
+    @include selected-neumorph;
+    color: $color-red-300; 
+
+ }
 
 .btm{
     @include out-neumorph;

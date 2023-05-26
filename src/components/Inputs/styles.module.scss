@@ -5,10 +5,10 @@
     display: flex;
     justify-content: center;    
     flex-direction: column;    
-    gap: 2rem;
+    gap: 0.4rem;
     font-family: 'Audiowide', cursive;
     letter-spacing: 0.2rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
 
     input{
       @include in-neumorph;
@@ -17,10 +17,12 @@
       padding: 1rem;
       border-radius: 0.8rem;
       border: none;
+      font-weight: 600;
     }
 
     input::placeholder{
         color: $color-red-200;
+        opacity: 0.6;
     }
     
   

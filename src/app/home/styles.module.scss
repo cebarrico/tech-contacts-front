@@ -1,0 +1,75 @@
+@use "../../scss/abstracts/" as *;
+
+.container{
+  flex-direction: column ;
+  position: relative;  
+  max-width: 1200px;
+}
+.addContact{
+  width: 50px;
+  height: 3rem;
+  position: absolute;
+  right: 6.1rem;
+  top: 3.5rem;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  @include out-neumorph;
+  border: none;
+  font-family: 'Audiowide', cursive;
+}
+.navContainer{
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Share Tech', sans-serif;
+  padding: 2rem;
+}
+.contactsContainer{
+  width: 90%;
+  height: 80%;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  // flex-wrap: wrap;
+  // justify-content: center;  
+  @include unselected-neumorph;
+  z-index: 1;
+
+  .columnsName{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    gap: 0 3rem;
+  }
+  
+
+  li{
+    @include unselected-neumorph;
+    display: flex;
+    justify-content: space-around;
+    height: 5rem;
+    font-family: 'Share Tech', sans-serif;
+    font-weight: 400;
+    h3{
+      font-family: 'Share Tech', sans-serif;
+    }
+  }
+
+  li:hover{
+    transition: 0.2s ease-in-out;
+    @include selected-neumorph;
+    color: $color-red-400;
+    font-weight: 700;
+    font-family: 'Share Tech', sans-serif;
+    h3{
+      font-weight: 700;
+    }
+  }
+}
+
