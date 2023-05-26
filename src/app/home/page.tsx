@@ -52,7 +52,9 @@ export default function Home() {
 
     getContacts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setIsOpenContact]);
+
+  console.log(contacts);
 
   if (load) {
     return <p>load</p>;

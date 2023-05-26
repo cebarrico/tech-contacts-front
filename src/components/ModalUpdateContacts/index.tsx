@@ -66,10 +66,12 @@ export function ModalUpdateContacts({
         },
       });
 
-      setContacts((previousData: Contact[]) => [
-        response.data,
-        ...previousData,
-      ]);
+      const getResponse = await api.get("contacts", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setContacts(getResponse.data);
       setIsOpenContact(false);
     } catch (error) {
       console.error(error);
