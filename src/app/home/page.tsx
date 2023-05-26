@@ -4,7 +4,9 @@ import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/providers/AuthContext";
 import ContactList from "@/components/ContactList";
+import { Contact } from "@/schemas/contacts.schemas";
 import { ModalAddContacts } from "@/components/ModalAddContacts";
+import { ModalUpdateContacts } from "@/components/ModalUpdateContacts";
 import { BsFillPencilFill } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 
@@ -12,7 +14,20 @@ import style from "./styles.module.scss";
 
 export default function Home() {
   const { user, contacts, setContacts, load } = useContext(AuthContext);
+  const [actualContact, setActualContact] = useState<Contact>();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenContact, setIsOpenContact] = useState(false);
+
+  async function handleSetIsOpenContact(data: any) {
+    const jwtToken = localStorage.getItem("@TOKEN");
+    const contact = await api.get(`contacts/${data}`, {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    });
+    setActualContact(contact.data);
+    setIsOpenContact(true);
+  }
 
   const router = useRouter();
   function logout() {
@@ -42,10 +57,19 @@ export default function Home() {
   if (load) {
     return <p>load</p>;
   }
+
   return (
     <>
       {isOpen && (
         <ModalAddContacts setIsOpen={setIsOpen} setContacts={setContacts} />
+      )}
+      {isOpenContact && (
+        <ModalUpdateContacts
+          setIsOpenContact={setIsOpenContact}
+          setContacts={setContacts}
+          setActualContact={setActualContact}
+          actualContact={actualContact}
+        />
       )}
       <header>
         <nav className={style.navContainer}>
@@ -78,6 +102,7 @@ export default function Home() {
             {contacts.map((contact, index) => {
               return (
                 <ContactList
+                  handleSetIsOpenContact={handleSetIsOpenContact}
                   key={index}
                   id={contact.id}
                   first_name={contact.first_name}
