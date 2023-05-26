@@ -1,3 +1,4 @@
+import style from "../../app/home/styles.module.scss";
 import { api } from "@/services/api";
 import { useContext, useState } from "react";
 import { AuthContext } from "@/providers/AuthContext";
@@ -27,14 +28,16 @@ export default function ContactList({ ...props }) {
     }
   }
   return (
-    <li key={props.key} onClick={() => props.handleSetIsOpenContact(props.id)}>
-      <div>
+    <li key={props.key}>
+      <div onClick={() => props.handleSetIsOpenContact(props.id)}>
         <h3>{props.first_name}</h3>
         <h3>{props.last_name}</h3>
         <span>{props.main_email}</span>
         <span>{props.main_phone}</span>
       </div>
-      <FaTrash onClick={() => deleteContact(props.id)} />
+      <div className={style.trashContainer}>
+        <FaTrash onClick={() => deleteContact(props.id)} />
+      </div>
     </li>
   );
 }
