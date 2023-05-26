@@ -1,17 +1,19 @@
 "use client";
+import { api } from "@/services/api";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/providers/AuthContext";
 import ContactList from "@/components/ContactList";
 import { ModalAddContacts } from "@/components/ModalAddContacts";
+import { BsFillPencilFill } from "react-icons/bs";
+import { BiLogOut } from "react-icons/bi";
 
 import style from "./styles.module.scss";
 
 export default function Home() {
-  const { user, contacts, load } = useContext(AuthContext);
+  const { user, contacts, setContacts, load } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(isOpen);
   const router = useRouter();
   function logout() {
     localStorage.clear();
@@ -19,15 +21,21 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const jwtToken = localStorage.getItem("@TOKEN");
+    const getContacts = async () => {
+      const jwtToken = localStorage.getItem("@TOKEN");
+      if (!jwtToken) {
+        localStorage.clear();
+        router.push("");
+      }
+      const response = await api.get("contacts", {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      });
+      setContacts(response.data);
+    };
 
-    if (!jwtToken) {
-      localStorage.clear();
-      router.push("");
-    }
-
-    // findUser();
-    return;
+    getContacts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -36,7 +44,9 @@ export default function Home() {
   }
   return (
     <>
-      {isOpen && <ModalAddContacts setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <ModalAddContacts setIsOpen={setIsOpen} setContacts={setContacts} />
+      )}
       <header>
         <nav className={style.navContainer}>
           <div>
@@ -48,8 +58,8 @@ export default function Home() {
           <span>{user?.main_phone}</span>
 
           <div>
-            <button>A</button>
-            <button onClick={logout}>Logout</button>
+            <BsFillPencilFill className={style.update} />
+            <BiLogOut className={style.logout} onClick={logout} />
           </div>
         </nav>
       </header>
@@ -65,7 +75,18 @@ export default function Home() {
               <span>Email</span>
               <span>Telefone</span>
             </div>
-            <ContactList />
+            {contacts.map((contact, index) => {
+              return (
+                <ContactList
+                  key={index}
+                  id={contact.id}
+                  first_name={contact.first_name}
+                  last_name={contact.last_name}
+                  main_email={contact.main_email}
+                  main_phone={contact.main_phone}
+                />
+              );
+            })}
           </ul>
         </section>
       </main>
