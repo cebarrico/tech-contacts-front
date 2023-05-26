@@ -123,7 +123,7 @@ export function ModalUpdateContacts({
         </form>
         <div className={style.extraContainer}>
           <ul className={style.modalList}>
-            <MiniEmailForm />
+            <MiniEmailForm contactId={actualContact.id} />
             {email.map((email) => {
               return (
                 <li key={email.id}>
@@ -133,7 +133,7 @@ export function ModalUpdateContacts({
             })}
           </ul>
           <ul className={style.modalList}>
-            <MiniPhoneForm />
+            <MiniPhoneForm contactId={actualContact.id} />
             {phone.map((phone) => {
               return (
                 <li key={phone.id}>
