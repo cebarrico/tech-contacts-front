@@ -9,8 +9,8 @@
   width: 50px;
   height: 3rem;
   position: absolute;
-  right: 6.1rem;
-  top: 3.5rem;
+  right: 0.1rem;
+  top: 0rem;
   font-size: 3rem;
   display: flex;
   justify-content: center;
@@ -20,6 +20,9 @@
   border: none;
   font-family: 'Audiowide', cursive;
 }
+
+
+
 .navContainer{
   width: 90%;
   max-width: 1200px;
@@ -29,8 +32,20 @@
   font-family: 'Share Tech', sans-serif;
   padding: 2rem;
 }
+.update{  
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.logout{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: 2rem;
+}
 .contactsContainer{
-  width: 90%;
+  position: relative;
+  width: 100%;
   height: 80%;
   gap: 2rem;
   display: flex;
@@ -50,14 +65,29 @@
   
 
   li{
+    cursor: pointer;
     @include unselected-neumorph;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     height: 5rem;
     font-family: 'Share Tech', sans-serif;
     font-weight: 400;
+
+    div{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
     h3{
       font-family: 'Share Tech', sans-serif;
+      width: 85px;
+    }
+
+    span{
+      width: 85px;
     }
   }
 
@@ -68,6 +98,7 @@
     font-weight: 700;
     font-family: 'Share Tech', sans-serif;
     h3{
+      
       font-weight: 700;
     }
   }

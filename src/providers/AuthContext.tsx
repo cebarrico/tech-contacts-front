@@ -1,6 +1,13 @@
 "use client";
 
-import { ReactNode, createContext, useState, useEffect } from "react";
+import {
+  ReactNode,
+  createContext,
+  useState,
+  useEffect,
+  SetStateAction,
+  Dispatch,
+} from "react";
 import { api } from "@/services/api";
 import { useRouter } from "next/navigation";
 import jwt_decode from "jwt-decode";
@@ -15,15 +22,16 @@ interface IAuthProviderProps {
 interface IContextValue {
   user: User | null;
   login: (data: Login) => Promise<void>;
-  contacts: Contact[] | null;
+  contacts: Contact[];
   load: boolean;
+  setContacts: React.Dispatch<React.SetStateAction<Contact[]>>;
 }
 export const AuthContext = createContext({} as IContextValue);
 
 export default function AuthProvider({ children }: IAuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [load, setLoading] = useState(false);
-  const [contacts, setContacts] = useState<Contact[] | null>([]);
+  const [contacts, setContacts] = useState<Contact[]>([]);
 
   const router = useRouter();
 
@@ -40,8 +48,8 @@ export default function AuthProvider({ children }: IAuthProviderProps) {
             Authorization: `Bearer ${jwtToken}`,
           },
         });
+
         setUser(response.data);
-        setContacts(response.data.contacts);
       } catch (error) {
         console.error(error);
       } finally {
@@ -62,9 +70,9 @@ export default function AuthProvider({ children }: IAuthProviderProps) {
       });
 
       localStorage.setItem("@TOKEN", response.data.token);
-      // localStorage.setItem("@ID", token.sub);
+
       setUser(findUser.data);
-      setContacts(findUser.data.contacts);
+
       router.push("/home");
     } catch (error) {
       console.error(error);
@@ -72,7 +80,7 @@ export default function AuthProvider({ children }: IAuthProviderProps) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, contacts, load }}>
+    <AuthContext.Provider value={{ user, login, contacts, setContacts, load }}>
       {children}
     </AuthContext.Provider>
   );
