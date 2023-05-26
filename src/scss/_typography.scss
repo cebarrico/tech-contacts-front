@@ -1,0 +1,11 @@
+@use "./abstracts" as *;
+
+body,
+input,
+button,
+textarea {
+    color: $color-red-500;
+    font-size: 1.6rem;
+    font-family: 'Share Tech', sans-serif;
+    letter-spacing: 0.2rem;
+}

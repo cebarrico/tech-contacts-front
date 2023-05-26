@@ -1,0 +1,39 @@
+@mixin out-neumorph {
+  background: #C8CEEA;
+  border-radius: 15%;
+  box-shadow: 9.91px 9.91px 15px #B6BBD5, -9.91px -9.91px 15px #DAE1FF;
+}
+
+@mixin in-neumorph{
+  background: #C8CEEA;
+  border-radius: 15%;
+  box-shadow: inset 9.91px 9.91px 15px #B6BBD5, inset -9.91px -9.91px 15px #DAE1FF;
+}
+
+@mixin circle-neumorph{
+  background: #C8CEEA;
+  border-radius: 100%;
+  box-shadow: 9.91px 9.91px 15px #B6BBD5, -9.91px -9.91px 15px #DAE1FF;
+}
+
+@mixin out-circle-neumorph{
+  background: #C8CEEA;
+  border-radius: 100%;
+  box-shadow: inset 9.91px 9.91px 15px #B6BBD5, inset -9.91px -9.91px 15px #DAE1FF;
+}
+
+@mixin selected-neumorph{
+  @include in-neumorph;  
+  font-family: 'Audiowide', cursive;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+}
+
+@mixin unselected-neumorph{
+  @include out-neumorph;  
+  font-family: 'Audiowide', cursive;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+}
