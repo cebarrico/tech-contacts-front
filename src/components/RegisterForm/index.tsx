@@ -22,8 +22,8 @@ export default function RegisterFormComponent() {
 
   const onSubmit: SubmitHandler<Register> = async (data) => {
     const response = await api.post("users", data);
-    return response;
     router.push("");
+    return response;
   };
 
   return (

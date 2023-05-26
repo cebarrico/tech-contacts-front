@@ -27,7 +27,7 @@ export default function ContactList({ ...props }) {
     }
   }
   return (
-    <li key={props.key}>
+    <li key={props.key} onClick={() => props.handleSetIsOpenContact(props.id)}>
       <div>
         <h3>{props.first_name}</h3>
         <h3>{props.last_name}</h3>
