@@ -7,6 +7,7 @@ import ContactList from "@/components/ContactList";
 import { Contact } from "@/schemas/contacts.schemas";
 import { ModalAddContacts } from "@/components/ModalAddContacts";
 import { ModalUpdateContacts } from "@/components/ModalUpdateContacts";
+import { ModalUpdateUser } from "@/components/ModalUpdateUser";
 import { BsFillPencilFill } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 
@@ -17,6 +18,7 @@ export default function Home() {
   const [actualContact, setActualContact] = useState<Contact>();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenContact, setIsOpenContact] = useState(false);
+  const [isOpenUser, setIsOpenUser] = useState(false);
 
   async function handleSetIsOpenContact(data: any) {
     const jwtToken = localStorage.getItem("@TOKEN");
@@ -71,6 +73,7 @@ export default function Home() {
           actualContact={actualContact}
         />
       )}
+      {isOpenUser && <ModalUpdateUser setIsOpenUser={setIsOpenUser} />}
       <header>
         <nav className={style.navContainer}>
           <div>
@@ -82,7 +85,10 @@ export default function Home() {
           <span>{user?.main_phone}</span>
 
           <div>
-            <BsFillPencilFill className={style.update} />
+            <BsFillPencilFill
+              className={style.update}
+              onClick={() => setIsOpenUser(true)}
+            />
             <BiLogOut className={style.logout} onClick={logout} />
           </div>
         </nav>

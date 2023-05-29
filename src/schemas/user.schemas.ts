@@ -21,11 +21,19 @@ export const userRegisterSchema = z.object({
 });
 
 export const userSchema = z.object({
+  id: z.string(),
   first_name: z.string(),
   last_name: z.string(),
   main_email: z.string().email(),
   main_phone: z.string(),
-  contacts: z.array(contactSchema),
+  // contacts: z.array(contactSchema),
+});
+
+export const updateUserSchema = z.object({
+  first_name: z.string().optional(),
+  last_name: z.string().optional(),
+  main_email: z.string().email().optional(),
+  main_phone: z.string().optional(),
 });
 
 export type Login = z.infer<typeof userLoginSchema>;

@@ -27,6 +27,7 @@ interface IAuthProviderProps {
 
 interface IContextValue {
   user: User | null;
+  setUser: Dispatch<SetStateAction<User | null>>;
   login: (data: Login) => Promise<void>;
   contacts: Contact[];
   load: boolean;
@@ -96,6 +97,7 @@ export default function AuthProvider({ children }: IAuthProviderProps) {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         login,
         contacts,
         setContacts,
