@@ -20,6 +20,7 @@ import {
   emailSchema,
   Email,
 } from "@/schemas/phone-mail.schemas";
+import { toast } from "react-toastify";
 
 interface IAuthProviderProps {
   children: ReactNode;
@@ -82,7 +83,7 @@ export default function AuthProvider({ children }: IAuthProviderProps) {
           Authorization: `Bearer ${response.data.token}`,
         },
       });
-      console.log(findUser.data);
+
       localStorage.setItem("@TOKEN", response.data.token);
 
       setUser(findUser.data);
@@ -90,6 +91,7 @@ export default function AuthProvider({ children }: IAuthProviderProps) {
       router.push("/home");
     } catch (error) {
       console.error(error);
+      toast.error(`Usuario ou senha invalidos`);
     }
   };
 
