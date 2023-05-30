@@ -4,6 +4,7 @@ import InputComponent from "../Inputs";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Contact, addContactSchema } from "@/schemas/contacts.schemas";
+import { toast } from "react-toastify";
 
 export function ModalAddContacts({ setIsOpen, setContacts }: any) {
   const {
@@ -22,14 +23,14 @@ export function ModalAddContacts({ setIsOpen, setContacts }: any) {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      toast.success("Contato adcionado com sucesso");
       setContacts((previousData: Contact[]) => [
         response.data,
         ...previousData,
       ]);
       setIsOpen(false);
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      console.error(error), toast.error(`${error.response.data.message}`);
     }
   }
 

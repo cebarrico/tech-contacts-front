@@ -10,6 +10,7 @@ import { ModalUpdateContacts } from "@/components/ModalUpdateContacts";
 import { ModalUpdateUser } from "@/components/ModalUpdateUser";
 import { BsFillPencilFill } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
+import { ToastContainer } from "react-toastify";
 
 import style from "./styles.module.scss";
 
@@ -121,6 +122,19 @@ export default function Home() {
           </ul>
         </section>
       </main>
+      <ToastContainer
+        className="toast"
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

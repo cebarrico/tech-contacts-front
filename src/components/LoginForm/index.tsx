@@ -8,6 +8,8 @@ import { Login, userLoginSchema } from "@/schemas/user.schemas";
 import { AuthContext } from "@/providers/AuthContext";
 import InputComponent from "../Inputs";
 import style from "./styles.module.scss";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function LoginFormComponent() {
   const { user, login } = useContext(AuthContext);
@@ -26,31 +28,46 @@ export default function LoginFormComponent() {
   };
 
   return (
-    <form className={style.container} onSubmit={handleSubmit(onSubmit)}>
-      <h1>KenzieContacts</h1>
-      <div>
-        <Link className={style.login} href="/">
-          Login
-        </Link>
-        <Link className={style.register} href="/register">
-          Cadastro
-        </Link>
-      </div>
-      <InputComponent
-        type="email"
-        placeholder="email"
-        label="email"
-        {...register("main_email")}
+    <>
+      <form className={style.container} onSubmit={handleSubmit(onSubmit)}>
+        <h1>KenzieContacts</h1>
+        <div>
+          <Link className={style.login} href="/">
+            Login
+          </Link>
+          <Link className={style.register} href="/register">
+            Cadastro
+          </Link>
+        </div>
+        <InputComponent
+          type="email"
+          placeholder="email"
+          label="email"
+          {...register("main_email")}
+        />
+        <InputComponent
+          type="password"
+          placeholder="password"
+          label="password"
+          {...register("password")}
+        />
+        <button className={style.btm} type="submit">
+          Logar
+        </button>
+      </form>
+      <ToastContainer
+        className="toast"
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
-      <InputComponent
-        type="password"
-        placeholder="password"
-        label="password"
-        {...register("password")}
-      />
-      <button className={style.btm} type="submit">
-        Logar
-      </button>
-    </form>
+    </>
   );
 }
