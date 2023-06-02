@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import { Audiowide } from "next/font/google";
 import "@/scss/main.scss";
 import AuthProvider from "@/providers/AuthContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const audiowide = Audiowide({ weight: "400" });
 
 export const metadata = {
   title: "KenzieContacts",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt">
-      <body className={inter.className}>
+      <body className={audiowide.className}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
