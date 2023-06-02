@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import { Audiowide } from "next/font/google";
 import "@/scss/main.scss";
 import AuthProvider from "@/providers/AuthContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Audiowide({ weight: "400", subsets: ["latin-ext"] });
 
 export const metadata = {
   title: "KenzieContacts",
