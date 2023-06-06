@@ -21,20 +21,20 @@
 
 .login{
    @include selected-neumorph;
-   color: $color-red-300;
+   color: $color-green-200;
 
 }
 
 .register{
     @include unselected-neumorph;
-    color: $color-red-500;
+    color: $color-green-500;
     transition: 0.1s ease-in-out;    
 }
 
 .register:focus{
     @include selected-neumorph;
     border-radius: 12px;
-    color: $color-red-300;
+    color: $color-green-200;
 }
 
 .btm{
@@ -46,9 +46,10 @@
     font-size: 2rem;
     font-weight: bold;
     margin-top: 1rem;
+    color:$color-green-500;
 }
 .btm:active{
     @include in-neumorph;
     border-radius: 12px;
-    color: $color-red-300;
+    color: $color-green-200;
 }
