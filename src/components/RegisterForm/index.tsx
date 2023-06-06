@@ -75,7 +75,7 @@ export default function RegisterFormComponent() {
           {...register("password")}
         />
         <button className={style.btm} type="submit">
-          Logar
+          Cadastrar
         </button>
       </form>
       <ToastContainer

@@ -12,7 +12,7 @@
     font-family: 'Audiowide', cursive;
     letter-spacing: 0.2rem;
     font-size: 1.4rem;
-    background-color: $color-gray-025 ;   
+    background-color: $color-gray-025 ;    
     z-index: 5;  
 
     .modalContainer{
@@ -74,9 +74,10 @@
         padding: 1rem;
         border-radius: 0.8rem;
         border: none;
+        color: $color-green-500;
        }
        input::placeholder{
-        color: $color-red-200;
+        color: $color-green-200;
         opacity: 0.6;
     }
       .fixedValue{
@@ -97,6 +98,8 @@
         justify-content: center;
         align-items: center;
         margin-left: 2rem;
+        color: $color-green-500;
+        
        
         @include out-neumorph;
         border: none;
@@ -136,11 +139,12 @@
         place-content: center;
         border-radius: 50%;
         border: none;
-        width: 4rem
+        width: 4rem;
+        color: $color-green-500;
       }
       button:active{
         @include out-circle-neumorph;        
-        color: $color-red-300;
+        color: $color-green-200;
       }
      
     }
@@ -154,10 +158,11 @@
       font-size: 2rem;
       font-weight: bold;
       margin-top: 3rem;
+      color: $color-green-500;
     }
     .btm:active{
       @include in-neumorph;
       border-radius: 12px;
-      color: $color-red-300;
+      color:$color-green-200;
     }
 }

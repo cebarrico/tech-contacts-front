@@ -9,6 +9,7 @@
     font-family: 'Audiowide', cursive;
     letter-spacing: 0.2rem;
     font-size: 1.4rem;
+    color: $color-green-500;
 
     input{
       @include in-neumorph;
@@ -18,10 +19,11 @@
       border-radius: 0.8rem;
       border: none;
       font-weight: 600;
+      color:$color-green-500;
     }
 
     input::placeholder{
-        color: $color-red-200;
+        color: $color-green-100;
         opacity: 0.6;
     }
     

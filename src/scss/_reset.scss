@@ -23,7 +23,7 @@
   /* Firefox */
   * {
     scrollbar-width: auto;
-    scrollbar-color: #e80202 #ffffff;
+    scrollbar-color: $color-green-500 #ffffff;
   }
 
   /* Chrome, Edge, and Safari */
@@ -36,7 +36,7 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #e80202;
+    background-color: $color-green-500;
     border-radius: 10px;
     border: 1px solid #ffffff;
   }
@@ -48,9 +48,9 @@ html {
 }
 
 body {
-  color: $color-red-500;
+  color: $color-green-500;
   -webkit-font-smoothing: antialiased;
-  background-color: $color-gray-050;
+  background-color: $color-black-400;
   overflow-x: hidden;
   
 }
@@ -71,10 +71,15 @@ strong {
   font-weight: 500;
   font-family: 'Audiowide', cursive;
   letter-spacing: 0.2rem;
+  color: $color-green-500;
 }
 
 button {
   cursor: pointer;
+  color:$color-green-500;
+}
+svg,span,p{
+  color:$color-green-500;
 }
 
 a {

@@ -118,7 +118,7 @@ export function ModalUpdateContacts({
             {...register("main_phone")}
           />
           <button className={style.btm} type="submit">
-            Adcionar
+            Atualizar
           </button>
         </form>
         <div className={style.extraContainer}>

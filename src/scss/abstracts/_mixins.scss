@@ -1,25 +1,27 @@
 @mixin out-neumorph {
-  background: #C8CEEA;
+  background: #454545;
   border-radius: 15%;
-  box-shadow: 9.91px 9.91px 15px #B6BBD5, -9.91px -9.91px 15px #DAE1FF;
+  box-shadow: 9.91px 9.91px 15px #3F3F3F, -9.91px -9.91px 15px #4B4B4B;
 }
-
+// background: #454545;
+// border-radius: 100%;
+// box-shadow: inset 9.91px 9.91px 15px #3F3F3F, inset -9.91px -9.91px 15px #4B4B4B;
 @mixin in-neumorph{
-  background: #C8CEEA;
+  background: #454545;
   border-radius: 15%;
-  box-shadow: inset 9.91px 9.91px 15px #B6BBD5, inset -9.91px -9.91px 15px #DAE1FF;
+  box-shadow: inset 9.91px 9.91px 15px #3F3F3F, inset -9.91px -9.91px 15px #4B4B4B;
 }
 
 @mixin circle-neumorph{
-  background: #C8CEEA;
+  background: #454545;
   border-radius: 100%;
-  box-shadow: 9.91px 9.91px 15px #B6BBD5, -9.91px -9.91px 15px #DAE1FF;
+  box-shadow: 9.91px 9.91px 15px #3F3F3F, -9.91px -9.91px 15px #4B4B4B;
 }
 
 @mixin out-circle-neumorph{
-  background: #C8CEEA;
+  background: #454545;
   border-radius: 100%;
-  box-shadow: inset 9.91px 9.91px 15px #B6BBD5, inset -9.91px -9.91px 15px #DAE1FF;
+  box-shadow: inset 9.91px 9.91px 15px #3F3F3F, inset -9.91px -9.91px 15px #4B4B4B;
 }
 
 @mixin selected-neumorph{

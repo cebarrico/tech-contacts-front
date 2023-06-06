@@ -74,9 +74,10 @@
         padding: 1rem;
         border-radius: 0.8rem;
         border: none;
+        color: $color-green-500;
        }
        input::placeholder{
-        color: $color-red-200;
+        color: $color-green-200;
         opacity: 0.6;
     }
       .fixedValue{
@@ -140,7 +141,7 @@
       }
       button:active{
         @include out-circle-neumorph;        
-        color: $color-red-300;
+        color: $color-green-200;
       }
      
     }
@@ -158,6 +159,9 @@
     .btm:active{
       @include in-neumorph;
       border-radius: 12px;
-      color: $color-red-300;
+      color: $color-green-200;
+    }
+    button{
+      color: $color-green-500;
     }
 }

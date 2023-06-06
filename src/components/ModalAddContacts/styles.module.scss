@@ -33,11 +33,12 @@
         place-content: center;
         border-radius: 50%;
         border: none;
-        width: 4rem
+        width: 4rem;
+        color:$color-green-500;
       }
       button:active{
         @include out-circle-neumorph;        
-        color: $color-red-300;
+        color: $color-green-300;
       }
      
     }
@@ -51,10 +52,11 @@
       font-size: 2rem;
       font-weight: bold;
       margin-top: 3rem;
+      color:$color-green-500;
     }
     .btm:active{
       @include in-neumorph;
       border-radius: 12px;
-      color: $color-red-300;
+      color: $color-green-300;
     }
 }
